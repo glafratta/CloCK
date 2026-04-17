@@ -221,11 +221,11 @@ Direction&#160;</td><td class="memItemRight" valign="bottom"><b>get_direction</b
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:ac17a464516c2c7f19d342d7ce4e0c2a7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classB2BConfigurator.html#ac17a464516c2c7f19d342d7ce4e0c2a7">closeVertex</a> (std::set&lt; vertexDescriptor &gt; &amp;closed, vertexDescriptor v) override</td></tr>
-<tr class="memdesc:ac17a464516c2c7f19d342d7ce4e0c2a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes a vertex but the maximum out edges number for a default state to have is 5 instead of 3.  <a href="classB2BConfigurator.html#ac17a464516c2c7f19d342d7ce4e0c2a7">More...</a><br /></td></tr>
+<tr class="memdesc:ac17a464516c2c7f19d342d7ce4e0c2a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes a vertex but the maximum out edges number for a default state to have is 5 instead of 3 Also adds vertex v to the root of clearvoyance, helpful for adding options in hindsight.  <a href="classB2BConfigurator.html#ac17a464516c2c7f19d342d7ce4e0c2a7">More...</a><br /></td></tr>
 <tr class="separator:ac17a464516c2c7f19d342d7ce4e0c2a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afba9914f70bbb518922e05499c1df046"><td class="memItemLeft" align="right" valign="top">std::vector&lt; vertexDescriptor &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classB2BConfigurator.html#afba9914f70bbb518922e05499c1df046">splitTask</a> (vertexDescriptor v, Direction d, vertexDescriptor src=TransitionSystem::null_vertex()) override</td></tr>
-<tr class="memdesc:afba9914f70bbb518922e05499c1df046"><td class="mdescLeft">&#160;</td><td class="mdescRight">Doesn't split the task, just returns the vertex of the task at hand; if <a class="el" href="classTask.html" title="A closed hybrid control loop. It has an initial disturbance representing the continuous state and a d...">Task</a> fails or it's currently executing, it returns the source vertex for the task aswell.  <a href="classB2BConfigurator.html#afba9914f70bbb518922e05499c1df046">More...</a><br /></td></tr>
-<tr class="separator:afba9914f70bbb518922e05499c1df046"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a885d6e2916d786479675a2a8b98100fa"><td class="memItemLeft" align="right" valign="top"><a id="a885d6e2916d786479675a2a8b98100fa"></a>
+virtual float&#160;</td><td class="memItemRight" valign="bottom"><b>customSimulationStep</b> (vertexDescriptor v=TransitionSystem::null_vertex())</td></tr>
+<tr class="separator:a885d6e2916d786479675a2a8b98100fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2a174db427803b8f5e08ebbf72be9ed0"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classB2BConfigurator.html#a2a174db427803b8f5e08ebbf72be9ed0">backtrack</a> (std::vector&lt; vertexDescriptor &gt; &amp;evaluation_q, std::vector&lt; vertexDescriptor &gt; &amp;priority_q, std::set&lt; vertexDescriptor &gt; &amp;closed, std::vector&lt; vertexDescriptor &gt; &amp;plan_prov, vertexDescriptor module_src=MOVING_VERTEX, vertexDescriptor startRecycle=MOVING_VERTEX) override</td></tr>
 <tr class="memdesc:a2a174db427803b8f5e08ebbf72be9ed0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="classFocusedConfigurator.html#a748216eeeb096731fa43ea17ea8d75e7" title="Iterates through vertices, if they result in crash, it splits the tasks and recalculates evaluation f...">AttentiveConfigurator::backtrack</a>, but also adds vertex to priority queue if the vertex is in the clearvoyance.  <a href="classB2BConfigurator.html#a2a174db427803b8f5e08ebbf72be9ed0">More...</a><br /></td></tr>
 <tr class="separator:a2a174db427803b8f5e08ebbf72be9ed0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -251,9 +251,13 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>minimumEdgesForClearvo
 <tr class="memitem:a9a7e954aa07a34bb646ddd6e859c3577"><td class="memItemLeft" align="right" valign="top"><a id="a9a7e954aa07a34bb646ddd6e859c3577"></a>
 virtual <a class="el" href="structsimResult.html">simResult</a>&#160;</td><td class="memItemRight" valign="bottom"><b>simulate</b> (<a class="el" href="classTask.html">Task</a> t, b2World &amp;world, vertexDescriptor v0)</td></tr>
 <tr class="separator:a9a7e954aa07a34bb646ddd6e859c3577"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa636f4bb987d4b3a82f7047c2d816191"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classB2BConfigurator.html#aa636f4bb987d4b3a82f7047c2d816191">addOptionsInHindsight</a> (vertexDescriptor v, vertexDescriptor v0, vertexDescriptor v1, <a class="el" href="classB2BConfigurator_1_1ClearVoyance.html">ClearVoyance</a> &amp;clearvoyance)</td></tr>
-<tr class="memdesc:aa636f4bb987d4b3a82f7047c2d816191"><td class="mdescLeft">&#160;</td><td class="mdescRight">If the frontier is a default state and its source is a turning task, it adds an additional default option in hindsight if the state crashed.  <a href="classB2BConfigurator.html#aa636f4bb987d4b3a82f7047c2d816191">More...</a><br /></td></tr>
-<tr class="separator:aa636f4bb987d4b3a82f7047c2d816191"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80919c1086845ff3165dbfeb40b3fac4"><td class="memItemLeft" align="right" valign="top"><a id="a80919c1086845ff3165dbfeb40b3fac4"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classB2BConfigurator.html#a80919c1086845ff3165dbfeb40b3fac4">applyTransitionMatrix</a> (vertexDescriptor v0, Direction d, bool ended, vertexDescriptor src, std::vector&lt; vertexDescriptor &gt; &amp;plan_prov)</td></tr>
+<tr class="memdesc:a80919c1086845ff3165dbfeb40b3fac4"><td class="mdescLeft">&#160;</td><td class="mdescRight">same as Focused but adds additional default tasks in hindsight <br /></td></tr>
+<tr class="separator:a80919c1086845ff3165dbfeb40b3fac4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03fdc16724ea4e3574f7996608db0817"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classB2BConfigurator.html#a03fdc16724ea4e3574f7996608db0817">addOptionsInHindsight</a> (vertexDescriptor v, vertexDescriptor v0, vertexDescriptor v1)</td></tr>
+<tr class="memdesc:a03fdc16724ea4e3574f7996608db0817"><td class="mdescLeft">&#160;</td><td class="mdescRight">If the frontier is a default state and its source is a turning task, it adds an additional default option in hindsight if the state crashed.  <a href="classB2BConfigurator.html#a03fdc16724ea4e3574f7996608db0817">More...</a><br /></td></tr>
+<tr class="separator:a03fdc16724ea4e3574f7996608db0817"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_methods_classAttentiveConfigurator"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classAttentiveConfigurator')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classAttentiveConfigurator.html">AttentiveConfigurator</a></td></tr>
 <tr class="memitem:ad5f3fa6a20ccbcfb1149caae35f047b1 inherit pro_methods_classAttentiveConfigurator"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAttentiveConfigurator.html#ad5f3fa6a20ccbcfb1149caae35f047b1">preventTransition</a> (vertexDescriptor v) override</td></tr>
 <tr class="separator:ad5f3fa6a20ccbcfb1149caae35f047b1 inherit pro_methods_classAttentiveConfigurator"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -271,9 +275,12 @@ std::pair&lt; bool, vertexDescriptor &gt;&#160;</td><td class="memItemRight" val
 <tr class="memitem:a5f49e5ffb573f3c25eefbd88b9dccd4f inherit pro_methods_classFocusedConfigurator"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classExecutionInfo.html">ExecutionInfo</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFocusedConfigurator.html#a5f49e5ffb573f3c25eefbd88b9dccd4f">package_info</a> (vertexDescriptor gv=TransitionSystem::null_vertex(), bool been=false)</td></tr>
 <tr class="memdesc:a5f49e5ffb573f3c25eefbd88b9dccd4f inherit pro_methods_classFocusedConfigurator"><td class="mdescLeft">&#160;</td><td class="mdescRight">Package task/goal execution details into an Execution Info instance.  <a href="classFocusedConfigurator.html#a5f49e5ffb573f3c25eefbd88b9dccd4f">More...</a><br /></td></tr>
 <tr class="separator:a5f49e5ffb573f3c25eefbd88b9dccd4f inherit pro_methods_classFocusedConfigurator"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a856b248666587a0ecc9e48f914441936 inherit pro_methods_classFocusedConfigurator"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFocusedConfigurator.html#a856b248666587a0ecc9e48f914441936">propagateD</a> (vertexDescriptor v1, vertexDescriptor v0, std::set&lt; vertexDescriptor &gt; *closed=NULL, StateMatcher::MATCH_TYPE match=StateMatcher::_FALSE)</td></tr>
-<tr class="memdesc:a856b248666587a0ecc9e48f914441936 inherit pro_methods_classFocusedConfigurator"><td class="mdescLeft">&#160;</td><td class="mdescRight">Propagate a disturbance backwards to all states representing the same task (max 1)  <a href="classFocusedConfigurator.html#a856b248666587a0ecc9e48f914441936">More...</a><br /></td></tr>
-<tr class="separator:a856b248666587a0ecc9e48f914441936 inherit pro_methods_classFocusedConfigurator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b1cd6c056e83fd05d52aed4890ce2e9 inherit pro_methods_classFocusedConfigurator"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; vertexDescriptor &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFocusedConfigurator.html#a1b1cd6c056e83fd05d52aed4890ce2e9">splitTask</a> (vertexDescriptor v, Direction d, vertexDescriptor src=TransitionSystem::null_vertex())</td></tr>
+<tr class="memdesc:a1b1cd6c056e83fd05d52aed4890ce2e9 inherit pro_methods_classFocusedConfigurator"><td class="mdescLeft">&#160;</td><td class="mdescRight">Split tasks into sub-states of fixed length.  <a href="classFocusedConfigurator.html#a1b1cd6c056e83fd05d52aed4890ce2e9">More...</a><br /></td></tr>
+<tr class="separator:a1b1cd6c056e83fd05d52aed4890ce2e9 inherit pro_methods_classFocusedConfigurator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8515a68ec1b1111c5a3d57dd3466e5ad inherit pro_methods_classFocusedConfigurator"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFocusedConfigurator.html#a8515a68ec1b1111c5a3d57dd3466e5ad">propagateD</a> (vertexDescriptor v1, vertexDescriptor v0)</td></tr>
+<tr class="memdesc:a8515a68ec1b1111c5a3d57dd3466e5ad inherit pro_methods_classFocusedConfigurator"><td class="mdescLeft">&#160;</td><td class="mdescRight">Propagate a disturbance backwards to all states representing the same task (max 1)  <a href="classFocusedConfigurator.html#a8515a68ec1b1111c5a3d57dd3466e5ad">More...</a><br /></td></tr>
+<tr class="separator:a8515a68ec1b1111c5a3d57dd3466e5ad inherit pro_methods_classFocusedConfigurator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac9be8a573b842713b4c4625e8f9d1077 inherit pro_methods_classFocusedConfigurator"><td class="memItemLeft" align="right" valign="top"><a id="ac9be8a573b842713b4c4625e8f9d1077"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>planPriority</b> (TransitionSystem &amp;, vertexDescriptor)</td></tr>
 <tr class="separator:ac9be8a573b842713b4c4625e8f9d1077 inherit pro_methods_classFocusedConfigurator"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -285,7 +292,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>adjust_rw_task</b> (c
 <tr class="separator:acf7f57ebb2f98ba903800091ca620d6d inherit pro_methods_classFocusedConfigurator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5babdc910c9349dcf41ff5d34b282479 inherit pro_methods_classFocusedConfigurator"><td class="memItemLeft" align="right" valign="top"><a id="a5babdc910c9349dcf41ff5d34b282479"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFocusedConfigurator.html#a5babdc910c9349dcf41ff5d34b282479">resetPhi</a> ()</td></tr>
-<tr class="memdesc:a5babdc910c9349dcf41ff5d34b282479 inherit pro_methods_classFocusedConfigurator"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets all vertices evaluation function phi to a default unitialised value of 10. <br /></td></tr>
+<tr class="memdesc:a5babdc910c9349dcf41ff5d34b282479 inherit pro_methods_classFocusedConfigurator"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets all vertices evaluation function phi to a default unitialised value of 10 Also resets all vertices filled flag as zero (used at each exploration round) <br /></td></tr>
 <tr class="separator:a5babdc910c9349dcf41ff5d34b282479 inherit pro_methods_classFocusedConfigurator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a92b1fbaa3d3307a3f4c92a4bbc98c97d inherit pro_methods_classFocusedConfigurator"><td class="memItemLeft" align="right" valign="top">std::pair&lt; edgeDescriptor, bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFocusedConfigurator.html#a92b1fbaa3d3307a3f4c92a4bbc98c97d">add_vertex_now</a> (const vertexDescriptor &amp;src, vertexDescriptor &amp;v1, <a class="el" href="structDisturbance.html">Disturbance</a> obs, <a class="el" href="structEdge.html">Edge</a> edge=<a class="el" href="structEdge.html">Edge</a>(), bool topDown=0)</td></tr>
 <tr class="memdesc:a92b1fbaa3d3307a3f4c92a4bbc98c97d inherit pro_methods_classFocusedConfigurator"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds state after discovering it in exploration.  <a href="classFocusedConfigurator.html#a92b1fbaa3d3307a3f4c92a4bbc98c97d">More...</a><br /></td></tr>
@@ -297,6 +304,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="separator:a434683987b8629f14c66af6ca8afa074 inherit pro_methods_classFocusedConfigurator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a72b114969d6146e48265f42c66bfa73c inherit pro_methods_classFocusedConfigurator"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFocusedConfigurator.html#a72b114969d6146e48265f42c66bfa73c">removeExploredTransitions</a> (vertexDescriptor v)</td></tr>
 <tr class="separator:a72b114969d6146e48265f42c66bfa73c inherit pro_methods_classFocusedConfigurator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a461215f8ea53ed4af0d1a00cd5848f0e inherit pro_methods_classFocusedConfigurator"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFocusedConfigurator.html#a461215f8ea53ed4af0d1a00cd5848f0e">removePointlessTransitions</a> (vertexDescriptor v)</td></tr>
+<tr class="separator:a461215f8ea53ed4af0d1a00cd5848f0e inherit pro_methods_classFocusedConfigurator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a01853a5a7ab1ac34c4d021415cbed4ab inherit pro_methods_classFocusedConfigurator"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFocusedConfigurator.html#a01853a5a7ab1ac34c4d021415cbed4ab">transitionMatrix</a> (vertexDescriptor v, Direction d, vertexDescriptor src)</td></tr>
 <tr class="separator:a01853a5a7ab1ac34c4d021415cbed4ab inherit pro_methods_classFocusedConfigurator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1ee5b7449b41b49ba66da68e32593d82 inherit pro_methods_classFocusedConfigurator"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFocusedConfigurator.html#a1ee5b7449b41b49ba66da68e32593d82">applyTransitionMatrix</a> (vertexDescriptor v0, Direction d, bool ended, vertexDescriptor src, std::vector&lt; vertexDescriptor &gt; &amp;plan_prov)</td></tr>
@@ -305,6 +314,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:a654212b589faf515d0ca263e462fd977 inherit pro_methods_classFocusedConfigurator"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFocusedConfigurator.html#a654212b589faf515d0ca263e462fd977">addToPriorityQueue</a> (vertexDescriptor v, std::vector&lt; vertexDescriptor &gt; &amp;queue, const std::set&lt; vertexDescriptor &gt; &amp;closed)</td></tr>
 <tr class="memdesc:a654212b589faf515d0ca263e462fd977 inherit pro_methods_classFocusedConfigurator"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds vertexDescriptor to priority queue according to a custom heuristic.  <a href="classFocusedConfigurator.html#a654212b589faf515d0ca263e462fd977">More...</a><br /></td></tr>
 <tr class="separator:a654212b589faf515d0ca263e462fd977 inherit pro_methods_classFocusedConfigurator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac7fe1754a4ac35b0bd1172880dfcd88 inherit pro_methods_classFocusedConfigurator"><td class="memItemLeft" align="right" valign="top"><a id="aac7fe1754a4ac35b0bd1172880dfcd88"></a>
+vertexDescriptor&#160;</td><td class="memItemRight" valign="bottom"><b>getNextSrc</b> (const std::vector&lt; vertexDescriptor &gt; &amp;q)</td></tr>
+<tr class="separator:aac7fe1754a4ac35b0bd1172880dfcd88 inherit pro_methods_classFocusedConfigurator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a24ea017931c5c601aabd54d21695b7ab inherit pro_methods_classFocusedConfigurator"><td class="memItemLeft" align="right" valign="top"><a id="a24ea017931c5c601aabd54d21695b7ab"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>ts_cleanup</b> ()</td></tr>
 <tr class="separator:a24ea017931c5c601aabd54d21695b7ab inherit pro_methods_classFocusedConfigurator"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -337,6 +349,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:a8f915121ad0da21fd7b84508a6a383ae inherit pro_methods_classFocusedConfigurator"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; vertexDescriptor &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFocusedConfigurator.html#a8f915121ad0da21fd7b84508a6a383ae">task_vertices</a> (vertexDescriptor v, std::pair&lt; bool, edgeDescriptor &gt; *ep=NULL)</td></tr>
 <tr class="memdesc:a8f915121ad0da21fd7b84508a6a383ae inherit pro_methods_classFocusedConfigurator"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rerturns all the vertices making up a task.  <a href="classFocusedConfigurator.html#a8f915121ad0da21fd7b84508a6a383ae">More...</a><br /></td></tr>
 <tr class="separator:a8f915121ad0da21fd7b84508a6a383ae inherit pro_methods_classFocusedConfigurator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a084ac09fbace0897881962e5ae0178f5 inherit pro_methods_classFocusedConfigurator"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFocusedConfigurator.html#a084ac09fbace0897881962e5ae0178f5">isPreviousState</a> (const <a class="el" href="structState.html">State</a> &amp;s, const <a class="el" href="structState.html">State</a> &amp;candidate)</td></tr>
+<tr class="memdesc:a084ac09fbace0897881962e5ae0178f5 inherit pro_methods_classFocusedConfigurator"><td class="mdescLeft">&#160;</td><td class="mdescRight">more flexible way to estimate whether the previous state represents the previous task based on matching shape of disturbances and logic applied to distance from Di/Dn  <a href="classFocusedConfigurator.html#a084ac09fbace0897881962e5ae0178f5">More...</a><br /></td></tr>
+<tr class="separator:a084ac09fbace0897881962e5ae0178f5 inherit pro_methods_classFocusedConfigurator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a444342d5588a73f7042f2e42f857675b inherit pro_methods_classFocusedConfigurator"><td class="memItemLeft" align="right" valign="top">vertexDescriptor&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFocusedConfigurator.html#a444342d5588a73f7042f2e42f857675b">getRecyclingStart</a> (vertexDescriptor v, vertexDescriptor v1, vertexDescriptor taskStart)</td></tr>
 <tr class="memdesc:a444342d5588a73f7042f2e42f857675b inherit pro_methods_classFocusedConfigurator"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the vertex from which to start recycling plan.  <a href="classFocusedConfigurator.html#a444342d5588a73f7042f2e42f857675b">More...</a><br /></td></tr>
 <tr class="separator:a444342d5588a73f7042f2e42f857675b inherit pro_methods_classFocusedConfigurator"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -346,9 +361,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:a00749950d523d53aa20029506415710f inherit pro_methods_classFocusedConfigurator"><td class="memItemLeft" align="right" valign="top">std::pair&lt; edgeDescriptor, bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFocusedConfigurator.html#a00749950d523d53aa20029506415710f">addEdgeRetrospectively</a> (vertexDescriptor v, vertexDescriptor &amp;v1, const <a class="el" href="structState.html">State</a> &amp;s_tmp, std::pair&lt; edgeDescriptor, bool &gt; first_edge, Direction d, float linearSpeed)</td></tr>
 <tr class="memdesc:a00749950d523d53aa20029506415710f inherit pro_methods_classFocusedConfigurator"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds edge retrospectively (used in split task)  <a href="classFocusedConfigurator.html#a00749950d523d53aa20029506415710f">More...</a><br /></td></tr>
 <tr class="separator:a00749950d523d53aa20029506415710f inherit pro_methods_classFocusedConfigurator"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac2fb06e00debcc3dbc748fe0ca01c371 inherit pro_methods_classFocusedConfigurator"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFocusedConfigurator.html#ac2fb06e00debcc3dbc748fe0ca01c371">correctQueue</a> (std::vector&lt; vertexDescriptor &gt; &amp;queue, vertexDescriptor v, vertexDescriptor startRecycle, int planProvSize)</td></tr>
-<tr class="memdesc:ac2fb06e00debcc3dbc748fe0ca01c371 inherit pro_methods_classFocusedConfigurator"><td class="mdescLeft">&#160;</td><td class="mdescRight">Edits.  <a href="classFocusedConfigurator.html#ac2fb06e00debcc3dbc748fe0ca01c371">More...</a><br /></td></tr>
-<tr class="separator:ac2fb06e00debcc3dbc748fe0ca01c371 inherit pro_methods_classFocusedConfigurator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04274c0147981a450702c964a799f32f inherit pro_methods_classFocusedConfigurator"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFocusedConfigurator.html#a04274c0147981a450702c964a799f32f">correctQueue</a> (std::vector&lt; vertexDescriptor &gt; &amp;queue, vertexDescriptor v, vertexDescriptor startRecycle, int planProvSize)</td></tr>
+<tr class="memdesc:a04274c0147981a450702c964a799f32f inherit pro_methods_classFocusedConfigurator"><td class="mdescLeft">&#160;</td><td class="mdescRight">Edits.  <a href="classFocusedConfigurator.html#a04274c0147981a450702c964a799f32f">More...</a><br /></td></tr>
+<tr class="separator:a04274c0147981a450702c964a799f32f inherit pro_methods_classFocusedConfigurator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0827463eb0fee53339647f8d71f34e83 inherit pro_methods_classFocusedConfigurator"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFocusedConfigurator.html#a0827463eb0fee53339647f8d71f34e83">adjustProbability</a> (const edgeDescriptor &amp;e)</td></tr>
 <tr class="memdesc:a0827463eb0fee53339647f8d71f34e83 inherit pro_methods_classFocusedConfigurator"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adjusts the probability that a continuous state (edge target) will occur after taking a discrete state transition from the edge source.  <a href="classFocusedConfigurator.html#a0827463eb0fee53339647f8d71f34e83">More...</a><br /></td></tr>
 <tr class="separator:a0827463eb0fee53339647f8d71f34e83 inherit pro_methods_classFocusedConfigurator"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -381,9 +396,6 @@ virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 <tr class="memitem:a6d97af4d4f48b799c7311c32f5b9087f inherit pro_methods_classFocusedConfigurator"><td class="memItemLeft" align="right" valign="top"><a id="a6d97af4d4f48b799c7311c32f5b9087f"></a>
 virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>canReassignOutcome</b> (vertexDescriptor v)</td></tr>
 <tr class="separator:a6d97af4d4f48b799c7311c32f5b9087f inherit pro_methods_classFocusedConfigurator"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf2d56b4cd548e3f0305e5e1cf088421 inherit pro_methods_classFocusedConfigurator"><td class="memItemLeft" align="right" valign="top"><a id="adf2d56b4cd548e3f0305e5e1cf088421"></a>
-virtual float&#160;</td><td class="memItemRight" valign="bottom"><b>customSimulationStep</b> (vertexDescriptor v=TransitionSystem::null_vertex())</td></tr>
-<tr class="separator:adf2d56b4cd548e3f0305e5e1cf088421 inherit pro_methods_classFocusedConfigurator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa12d9e354858844b7abc5439ffd7bf51 inherit pro_methods_classFocusedConfigurator"><td class="memItemLeft" align="right" valign="top"><a id="aa12d9e354858844b7abc5439ffd7bf51"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasPlanFinished</b> ()</td></tr>
 <tr class="separator:aa12d9e354858844b7abc5439ffd7bf51 inherit pro_methods_classFocusedConfigurator"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -488,8 +500,8 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="classB2BConfigurator.html" title="B2BConfigurator is a class that extends the AttentiveConfigurator to eliminate the Task splitting in ...">B2BConfigurator</a> is a class that extends the <a class="el" href="classAttentiveConfigurator.html" title="Configurator with long-range planning. It explores transitions out of a state until a DEFAULT Task is...">AttentiveConfigurator</a> to eliminate the <a class="el" href="classTask.html" title="A closed hybrid control loop. It has an initial disturbance representing the continuous state and a d...">Task</a> splitting in fixed sized steps but finds waypoints by propagating disturbances back in time and across branches of the transitionSystem. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="aa636f4bb987d4b3a82f7047c2d816191"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa636f4bb987d4b3a82f7047c2d816191">&#9670;&nbsp;</a></span>addOptionsInHindsight()</h2>
+<a id="a03fdc16724ea4e3574f7996608db0817"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03fdc16724ea4e3574f7996608db0817">&#9670;&nbsp;</a></span>addOptionsInHindsight()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -513,13 +525,7 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">vertexDescriptor&#160;</td>
-          <td class="paramname"><em>v1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classB2BConfigurator_1_1ClearVoyance.html">ClearVoyance</a> &amp;&#160;</td>
-          <td class="paramname"><em>clearvoyance</em>&#160;</td>
+          <td class="paramname"><em>v1</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -715,7 +721,7 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 </table>
 </div><div class="memdoc">
 
-<p>Closes a vertex but the maximum out edges number for a default state to have is 5 instead of 3. </p>
+<p>Closes a vertex but the maximum out edges number for a default state to have is 5 instead of 3 Also adds vertex v to the root of clearvoyance, helpful for adding options in hindsight. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">closed</td><td></td></tr>
@@ -849,62 +855,6 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="structDisturbance.html">Disturbance</a> </dd></dl>
 
 <p>Reimplemented from <a class="el" href="classFocusedConfigurator.html#a86fd70edb904747aed041ec021abcdae">FocusedConfigurator</a>.</p>
-
-</div>
-</div>
-<a id="afba9914f70bbb518922e05499c1df046"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afba9914f70bbb518922e05499c1df046">&#9670;&nbsp;</a></span>splitTask()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt; vertexDescriptor &gt; B2BConfigurator::splitTask </td>
-          <td>(</td>
-          <td class="paramtype">vertexDescriptor&#160;</td>
-          <td class="paramname"><em>v</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Direction&#160;</td>
-          <td class="paramname"><em>d</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vertexDescriptor&#160;</td>
-          <td class="paramname"><em>src</em> = <code>TransitionSystem::null_vertex()</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Doesn't split the task, just returns the vertex of the task at hand; if <a class="el" href="classTask.html" title="A closed hybrid control loop. It has an initial disturbance representing the continuous state and a d...">Task</a> fails or it's currently executing, it returns the source vertex for the task aswell. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">v</td><td>vertex of the task </td></tr>
-    <tr><td class="paramname">d</td><td>direction of the task that are allowed to split (not used) </td></tr>
-    <tr><td class="paramname">src</td><td>source of the task </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>std::vector &lt;vertexDescriptor&gt; </dd></dl>
-<p>//&amp;&amp; sameIterationEdgeIt!=ie.end()</p>
-
-<p>Reimplemented from <a class="el" href="classFocusedConfigurator.html#a1b1cd6c056e83fd05d52aed4890ce2e9">FocusedConfigurator</a>.</p>
 
 </div>
 </div>

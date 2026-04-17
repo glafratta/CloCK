@@ -1,14 +1,14 @@
 var searchData=
 [
-  ['canpropagate_320',['canPropagate',['../classDiscreteConfigurator.html#aa106dc46a8d1a98a35d4ef0a0e2f5424',1,'DiscreteConfigurator::canPropagate()'],['../classFocusedConfigurator.html#a76bbf5e52417f4acb135141be47cfb11',1,'FocusedConfigurator::canPropagate()']]],
-  ['cast_5fb2vec2_321',['cast_b2Vec2',['../sensor_8h.html#a05f8a240a869f8b2d7dc1846e5e530c1',1,'sensor.h']]],
-  ['cast_5fpoint2f_322',['cast_Point2f',['../sensor_8h.html#a206c7eef8d86aae669fa3d740bc1f5a1',1,'sensor.h']]],
-  ['change_5fgoal_323',['change_goal',['../structGoalChanger.html#ab68649df6c693ce06ea01912d2d5bcd2',1,'GoalChanger']]],
-  ['change_5ftask_324',['change_task',['../classConfigurator.html#afd6e00cf4faa38476236c7bde59808bd',1,'Configurator']]],
-  ['checkended_325',['checkEnded',['../classTask.html#a3e1686b63e4bef0552182364f837ec8c',1,'Task::checkEnded(b2Transform robotTransform=b2Transform_zero, Direction dir=UNDEFINED, bool relax=0, b2Body *robot=NULL, std::pair&lt; bool, b2Transform &gt; use_start=std::pair&lt; bool, b2Transform &gt;(1, b2Transform_zero))'],['../classTask.html#a5a89b3bcfbb09a4924debce3ff374bf4',1,'Task::checkEnded(const State &amp;n, Direction dir=UNDEFINED, bool relax=false, std::pair&lt; bool, b2Transform &gt; use_start=std::pair&lt; bool, b2Transform &gt;(1, b2Transform_zero))'],['../classTask.html#a1a1c3ff485bb643b086ed864b1d1825b',1,'Task::checkEnded(const b2PolygonShape &amp;box, const b2Transform &amp;robot_pose=b2Transform_zero, Disturbance *dist_obs=NULL)']]],
-  ['cleardata_326',['clearData',['../classConfigurator.html#ad7a4c39923f711ceb8a1a636154c4e7f',1,'Configurator']]],
-  ['closevertex_327',['closeVertex',['../classDiscreteConfigurator.html#a5b5e0e74d813688bff0bebe0352f84e2',1,'DiscreteConfigurator::closeVertex()'],['../classB2BConfigurator.html#ac17a464516c2c7f19d342d7ce4e0c2a7',1,'B2BConfigurator::closeVertex()']]],
-  ['cluster_5fdata_328',['cluster_data',['../classWorldBuilder.html#a9ed07118a0c36df5064ba63b00fc09d2',1,'WorldBuilder']]],
-  ['correctangle_329',['correctAngle',['../classClosedLoop__Tracker.html#ad53e29d5c51f1c2e633cf446f4299758',1,'ClosedLoop_Tracker']]],
-  ['correctqueue_330',['correctQueue',['../classFocusedConfigurator.html#ac2fb06e00debcc3dbc748fe0ca01c371',1,'FocusedConfigurator']]]
+  ['canpropagate_323',['canPropagate',['../classDiscreteConfigurator.html#aa106dc46a8d1a98a35d4ef0a0e2f5424',1,'DiscreteConfigurator::canPropagate()'],['../classFocusedConfigurator.html#a76bbf5e52417f4acb135141be47cfb11',1,'FocusedConfigurator::canPropagate()']]],
+  ['cast_5fb2vec2_324',['cast_b2Vec2',['../sensor_8h.html#a05f8a240a869f8b2d7dc1846e5e530c1',1,'sensor.h']]],
+  ['cast_5fpoint2f_325',['cast_Point2f',['../sensor_8h.html#a206c7eef8d86aae669fa3d740bc1f5a1',1,'sensor.h']]],
+  ['change_5fgoal_326',['change_goal',['../structGoalChanger.html#ab68649df6c693ce06ea01912d2d5bcd2',1,'GoalChanger']]],
+  ['change_5ftask_327',['change_task',['../classConfigurator.html#afd6e00cf4faa38476236c7bde59808bd',1,'Configurator']]],
+  ['checkended_328',['checkEnded',['../classTask.html#a3e1686b63e4bef0552182364f837ec8c',1,'Task::checkEnded(b2Transform robotTransform=b2Transform_zero, Direction dir=UNDEFINED, bool relax=0, b2Body *robot=NULL, std::pair&lt; bool, b2Transform &gt; use_start=std::pair&lt; bool, b2Transform &gt;(1, b2Transform_zero))'],['../classTask.html#a5a89b3bcfbb09a4924debce3ff374bf4',1,'Task::checkEnded(const State &amp;n, Direction dir=UNDEFINED, bool relax=false, std::pair&lt; bool, b2Transform &gt; use_start=std::pair&lt; bool, b2Transform &gt;(1, b2Transform_zero))'],['../classTask.html#a1a1c3ff485bb643b086ed864b1d1825b',1,'Task::checkEnded(const b2PolygonShape &amp;box, const b2Transform &amp;robot_pose=b2Transform_zero, Disturbance *dist_obs=NULL)']]],
+  ['cleardata_329',['clearData',['../classConfigurator.html#ad7a4c39923f711ceb8a1a636154c4e7f',1,'Configurator']]],
+  ['closevertex_330',['closeVertex',['../classDiscreteConfigurator.html#a5b5e0e74d813688bff0bebe0352f84e2',1,'DiscreteConfigurator::closeVertex()'],['../classB2BConfigurator.html#ac17a464516c2c7f19d342d7ce4e0c2a7',1,'B2BConfigurator::closeVertex()']]],
+  ['cluster_5fdata_331',['cluster_data',['../classWorldBuilder.html#a9ed07118a0c36df5064ba63b00fc09d2',1,'WorldBuilder']]],
+  ['correctangle_332',['correctAngle',['../classClosedLoop__Tracker.html#ad53e29d5c51f1c2e633cf446f4299758',1,'ClosedLoop_Tracker']]],
+  ['correctqueue_333',['correctQueue',['../classFocusedConfigurator.html#a04274c0147981a450702c964a799f32f',1,'FocusedConfigurator']]]
 ];

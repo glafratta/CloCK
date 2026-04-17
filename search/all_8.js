@@ -8,5 +8,6 @@ var searchData=
   ['invmul_119',['InvMul',['../classConfigurator.html#adbde85cc7db5800b6cccfa9e98b60534',1,'Configurator']]],
   ['invmul_5f_120',['InvMul_',['../classConfigurator.html#a681dd37340768f1ade556399d2e2877e',1,'Configurator']]],
   ['is_5fnot_5fv_121',['is_not_v',['../structis__not__v.html',1,'is_not_v'],['../structis__not__v.html#a1f0cdbafec6ffd9402c9d5eecf6f48ba',1,'is_not_v::is_not_v()']]],
-  ['is_5fover_122',['is_over',['../classTask.html#afe864bdf39d00228049c320f4a26ba14',1,'Task']]]
+  ['is_5fover_122',['is_over',['../classTask.html#afe864bdf39d00228049c320f4a26ba14',1,'Task']]],
+  ['ispreviousstate_123',['isPreviousState',['../classFocusedConfigurator.html#a084ac09fbace0897881962e5ae0178f5',1,'FocusedConfigurator']]]
 ];

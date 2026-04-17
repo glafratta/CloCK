@@ -193,14 +193,30 @@ $(function() {
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;<span class="comment">//same as CL Tracker but creates custom threshold based on state</span></div>
 <div class="line"><a name="l00203"></a><span class="lineno"><a class="line" href="classCLAdaptiveTracker.html">  203</a></span>&#160;<span class="keyword">class </span><a class="code" href="classCLAdaptiveTracker.html">CLAdaptiveTracker</a>:<span class="keyword">public</span> <a class="code" href="classClosedLoop__Tracker.html">ClosedLoop_Tracker</a>{</div>
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    <a class="code" href="classThreshold.html">Threshold</a> get_threshold(<span class="keyword">const</span> <a class="code" href="structState.html">State</a> &amp;s){</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;        <span class="keywordtype">float</span> distance=std::max(Threshold::FIXED_ENDPOSE, s.distance()/2);</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classThreshold.html">Threshold</a>(distance, Threshold::FIXED_ANGLE, Threshold::FIXED_DISTPOS, Threshold::FIXED_AFFORDANCE, Threshold::FIXED_DIMENSIONS);</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    }</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160; </div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;};</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160; </div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    <a class="code" href="classThreshold.html">Threshold</a> get_threshold(<span class="keyword">const</span> <a class="code" href="structState.html">State</a> &amp;s){</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;        <span class="keywordtype">float</span> distance=std::max(Threshold::FIXED_ENDPOSE, s.distance()/2);</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;<span class="comment">//        float dist=std::max(Threshold::FIXED_DISTPOS, s.distance()/2);</span></div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;        <span class="keywordtype">float</span> dimensions=std::max(Threshold::FIXED_DIMENSIONS, <a class="code" href="classCLAdaptiveTracker.html#ac43b03cb2a9d0e375e286a4532f649d1">logistic</a>(getBiggestDimension(s)));</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classThreshold.html">Threshold</a>(distance, Threshold::FIXED_ANGLE, dimensions, Threshold::FIXED_AFFORDANCE, dimensions);</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    }</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160; </div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    <span class="keywordtype">float</span> getBiggestDimension(<span class="keyword">const</span> <a class="code" href="structState.html">State</a> &amp;s){</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;        <span class="keywordflow">return</span> std::max(getMaxDim(s.Di), getMaxDim(s.Dn));</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    }</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160; </div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    <span class="keywordtype">float</span> getMaxDim(<span class="keyword">const</span> <a class="code" href="structDisturbance.html">Disturbance</a> &amp;d){</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;        <span class="keywordflow">return</span> std::max(d.bf.halfLength, d.bf.halfWidth); </div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    }</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160; </div>
+<div class="line"><a name="l00224"></a><span class="lineno"><a class="line" href="classCLAdaptiveTracker.html#ac43b03cb2a9d0e375e286a4532f649d1">  224</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="classCLAdaptiveTracker.html#ac43b03cb2a9d0e375e286a4532f649d1">logistic</a>(<span class="keywordtype">float</span> biggest){</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;        <span class="keywordflow">return</span> (1/tanh(biggest))*0.2*biggest;</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    }</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160; </div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160; </div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;};</div>
 <div class="ttc" id="aclassCLAdaptiveTracker_html"><div class="ttname"><a href="classCLAdaptiveTracker.html">CLAdaptiveTracker</a></div><div class="ttdef"><b>Definition:</b> tracker.h:203</div></div>
+<div class="ttc" id="aclassCLAdaptiveTracker_html_ac43b03cb2a9d0e375e286a4532f649d1"><div class="ttname"><a href="classCLAdaptiveTracker.html#ac43b03cb2a9d0e375e286a4532f649d1">CLAdaptiveTracker::logistic</a></div><div class="ttdeci">float logistic(float biggest)</div><div class="ttdoc">find a factor to multiply biggest disturbance dimension by in order to find match</div><div class="ttdef"><b>Definition:</b> tracker.h:224</div></div>
 <div class="ttc" id="aclassClosedLoop__Tracker_html"><div class="ttname"><a href="classClosedLoop__Tracker.html">ClosedLoop_Tracker</a></div><div class="ttdoc">Tracks task execution by observing changes in tracked disturbance.</div><div class="ttdef"><b>Definition:</b> tracker.h:120</div></div>
 <div class="ttc" id="aclassClosedLoop__Tracker_html_a081797ff55bde511ddd91861b9d33cf8"><div class="ttname"><a href="classClosedLoop__Tracker.html#a081797ff55bde511ddd91861b9d33cf8">ClosedLoop_Tracker::get_transform</a></div><div class="ttdeci">TrackingResult get_transform(const Task &amp;t, const CoordinateContainer &amp;pts, const std::vector&lt; BodyFeatures &gt; &amp;objects) override</div><div class="ttdoc">returns 2d transformation matrix between one scan and the next based on the displacement of disturban...</div><div class="ttdef"><b>Definition:</b> tracker.cpp:55</div></div>
 <div class="ttc" id="aclassClosedLoop__Tracker_html_a1bcdb862c821934bc49f1f1a47ec24c6"><div class="ttname"><a href="classClosedLoop__Tracker.html#a1bcdb862c821934bc49f1f1a47ec24c6">ClosedLoop_Tracker::on_new_task</a></div><div class="ttdeci">void on_new_task(const Task &amp;task, const Task &amp;goal) override</div><div class="ttdoc">Uses the goal to reset tracked disturbance at each task.</div><div class="ttdef"><b>Definition:</b> tracker.cpp:134</div></div>

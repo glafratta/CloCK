@@ -75,139 +75,153 @@ $(function() {
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;task.h&quot;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;graphTools.h&quot;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">//typedef std::pair&lt;vertexDescriptor, std::vector&lt;vertexDescriptor&gt;&gt; Frontier;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">//typedef std::pair&lt;vertexDescriptor, std::vector&lt;vertexDescriptor&gt;&gt; Frontier;</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="structFrontier.html">   16</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structFrontier.html">Frontier</a>{</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    vertexDescriptor frontier=TransitionSystem::null_vertex();</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    std::vector&lt;vertexDescriptor&gt; connecting;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="structFrontier.html">Frontier</a>()=<span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="structFrontier.html">Frontier</a>(vertexDescriptor _f, <span class="keyword">const</span> std::vector&lt;vertexDescriptor&gt;&amp;_c):frontier(_f), connecting(_c){}</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">bool</span> operator==(<span class="keyword">const</span> <a class="code" href="structFrontier.html">Frontier</a> &amp;f)<span class="keyword">const</span>{</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordflow">return</span> frontier==f.frontier &amp;&amp; connecting==f.connecting;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    }</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;};</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="structFrontier.html">   17</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structFrontier.html">Frontier</a>{</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    vertexDescriptor frontier=TransitionSystem::null_vertex();</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    std::vector&lt;vertexDescriptor&gt; connecting;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="structFrontier.html">Frontier</a>()=<span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="structFrontier.html">Frontier</a>(vertexDescriptor _f, <span class="keyword">const</span> std::vector&lt;vertexDescriptor&gt;&amp;_c):frontier(_f), connecting(_c){}</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">bool</span> operator==(<span class="keyword">const</span> <a class="code" href="structFrontier.html">Frontier</a> &amp;f)<span class="keyword">const</span>{</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordflow">return</span> frontier==f.frontier &amp;&amp; connecting==f.connecting;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    }</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;};</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="structComparePhi.html">   34</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structComparePhi.html">ComparePhi</a>{</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="structComparePhi.html">ComparePhi</a>(){}</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">bool</span> operator()(<span class="keyword">const</span> std::pair&lt;State*, Frontier&gt;&amp; p1, <span class="keyword">const</span> std::pair&lt;State*, Frontier&gt;&amp; p2)<span class="keyword"> const</span>{</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordflow">return</span> (*p1.first).phi&lt;(*p2.first).phi;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    }</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;};</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="structComparePhi.html">   35</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structComparePhi.html">ComparePhi</a>{</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="structComparePhi.html">ComparePhi</a>(){}</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">bool</span> operator()(<span class="keyword">const</span> std::pair&lt;State*, Frontier&gt;&amp; p1, <span class="keyword">const</span> std::pair&lt;State*, Frontier&gt;&amp; p2)<span class="keyword"> const</span>{</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keywordflow">return</span> (*p1.first).phi&lt;(*p2.first).phi;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    }</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;};</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="classExecutionInfo.html">   48</a></span>&#160;<span class="keyword">class </span><a class="code" href="classExecutionInfo.html">ExecutionInfo</a>{</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    vertexDescriptor m_currentVertex=0, m_goalVertex=TransitionSystem::null_vertex();</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <a class="code" href="classTask.html">Task</a> m_currentTask;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <a class="code" href="classTask.html">Task</a> m_overarchingGoal; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">bool</span> m_been; <span class="comment">//has a plan been made to fulfill this overarching goal before?</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    std::vector &lt;vertexDescriptor&gt; m_plan;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classConfigurator.html">Configurator</a>;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">void</span> been(<span class="keywordtype">bool</span> b){m_been=b;}</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">void</span> goalVertex(vertexDescriptor gv){m_goalVertex=gv;}</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <a class="code" href="classExecutionInfo.html">ExecutionInfo</a>(){}</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <a class="code" href="classExecutionInfo.html">ExecutionInfo</a>( vertexDescriptor _cv, vertexDescriptor _goal, <a class="code" href="classTask.html">Task</a> &amp; _ct, <a class="code" href="classTask.html">Task</a> &amp; _gt, <span class="keywordtype">bool</span> _been, std::vector&lt;vertexDescriptor&gt; _plan){</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        m_currentVertex=_cv;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        m_goalVertex=_goal;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        m_currentTask=_ct;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        m_overarchingGoal=_gt;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        m_been=_been;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        m_plan=_plan;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    }</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">void</span> overarchingGoal(<span class="keyword">const</span> <a class="code" href="classTask.html">Task</a> &amp; og){m_overarchingGoal=og;}</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="classExecutionInfo.html">   49</a></span>&#160;<span class="keyword">class </span><a class="code" href="classExecutionInfo.html">ExecutionInfo</a>{</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    vertexDescriptor m_currentVertex=0, m_goalVertex=TransitionSystem::null_vertex();</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <a class="code" href="classTask.html">Task</a> m_currentTask;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <a class="code" href="classTask.html">Task</a> m_overarchingGoal; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">bool</span> m_been; <span class="comment">//has a plan been made to fulfill this overarching goal before?</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    std::vector &lt;vertexDescriptor&gt; m_plan;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classConfigurator.html">Configurator</a>;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">void</span> been(<span class="keywordtype">bool</span> b){m_been=b;}</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">void</span> goalVertex(vertexDescriptor gv){m_goalVertex=gv;}</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <a class="code" href="classExecutionInfo.html">ExecutionInfo</a>(){}</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <a class="code" href="classExecutionInfo.html">ExecutionInfo</a>( vertexDescriptor _cv, vertexDescriptor _goal, <a class="code" href="classTask.html">Task</a> &amp; _ct, <a class="code" href="classTask.html">Task</a> &amp; _gt, <span class="keywordtype">bool</span> _been, std::vector&lt;vertexDescriptor&gt; _plan){</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        m_currentVertex=_cv;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        m_goalVertex=_goal;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        m_currentTask=_ct;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        m_overarchingGoal=_gt;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        m_been=_been;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        m_plan=_plan;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    }</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordtype">void</span> overarchingGoal(<span class="keyword">const</span> <a class="code" href="classTask.html">Task</a> &amp; og){m_overarchingGoal=og;}</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    vertexDescriptor currentVertex()<span class="keyword">const</span>{<span class="keywordflow">return</span> m_currentVertex;}</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    vertexDescriptor goalVertex()<span class="keyword">const</span>{<span class="keywordflow">return</span> m_goalVertex;}</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <a class="code" href="classTask.html">Task</a>&amp; currentTask(){<span class="keywordflow">return</span> m_currentTask;}</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <a class="code" href="classTask.html">Task</a>&amp; overarchingGoal() {<span class="keywordflow">return</span> m_overarchingGoal;}</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordtype">bool</span> been()<span class="keyword">const</span>{<span class="keywordflow">return</span> m_been;}</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    std::vector&lt;vertexDescriptor&gt; plan()<span class="keyword">const</span>{<span class="keywordflow">return</span> m_plan;}</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;};</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    vertexDescriptor currentVertex()<span class="keyword">const</span>{<span class="keywordflow">return</span> m_currentVertex;}</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    vertexDescriptor goalVertex()<span class="keyword">const</span>{<span class="keywordflow">return</span> m_goalVertex;}</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <a class="code" href="classTask.html">Task</a>&amp; currentTask(){<span class="keywordflow">return</span> m_currentTask;}</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <a class="code" href="classTask.html">Task</a>&amp; overarchingGoal() {<span class="keywordflow">return</span> m_overarchingGoal;}</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordtype">bool</span> been()<span class="keyword">const</span>{<span class="keywordflow">return</span> m_been;}</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    std::vector&lt;vertexDescriptor&gt; plan()<span class="keyword">const</span>{<span class="keywordflow">return</span> m_plan;}</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;};</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;std::vector &lt;Frontier&gt; <a class="code" href="planner_8h.html#a14dbfe33b0e5bb016c9418a84e308bf9">frontierVertices</a>(vertexDescriptor v, TransitionSystem&amp; g, <a class="code" href="classExecutionInfo.html">ExecutionInfo</a> &amp; info); <span class="comment">//returns the closest vertices to the start vertex which are reached by executing a task of the specified direction</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="keywordtype">float</span> <a class="code" href="planner_8h.html#ab029ebc328b13a4e272125d1dcbd53aa">evaluationFunction</a>(<a class="code" href="structEndedResult.html">EndedResult</a> er, <span class="keyword">const</span> vertexDescriptor &amp;v, std::vector&lt;vertexDescriptor&gt;&amp; p);</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<a class="code" href="structEndedResult.html">EndedResult</a> <a class="code" href="planner_8h.html#a28788457bae4570731c2c24c7c3d4ba6">estimateCost</a>(<span class="keyword">const</span> <a class="code" href="structState.html">State</a> &amp;state, b2Transform start, Direction d, <a class="code" href="classTask.html">Task</a> &amp; _goal); <span class="comment">//returns whether the controlGoal has ended and fills node with cost and error</span></div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;std::vector &lt;Frontier&gt; <a class="code" href="planner_8h.html#a14dbfe33b0e5bb016c9418a84e308bf9">frontierVertices</a>(vertexDescriptor v, TransitionSystem&amp; g, <a class="code" href="classExecutionInfo.html">ExecutionInfo</a> &amp; info); <span class="comment">//returns the closest vertices to the start vertex which are reached by executing a task of the specified direction</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="keywordtype">float</span> <a class="code" href="planner_8h.html#ab029ebc328b13a4e272125d1dcbd53aa">evaluationFunction</a>(<a class="code" href="structEndedResult.html">EndedResult</a> er, <span class="keyword">const</span> vertexDescriptor &amp;v, std::vector&lt;vertexDescriptor&gt;&amp; p);</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<a class="code" href="structEndedResult.html">EndedResult</a> <a class="code" href="planner_8h.html#a28788457bae4570731c2c24c7c3d4ba6">estimateCost</a>(<span class="keyword">const</span> <a class="code" href="structState.html">State</a> &amp;state, b2Transform start, Direction d, <a class="code" href="classTask.html">Task</a> &amp; _goal); <span class="comment">//returns whether the controlGoal has ended and fills node with cost and error</span></div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
-<div class="line"><a name="l00130"></a><span class="lineno"><a class="line" href="classPlanner.html">  130</a></span>&#160;<span class="keyword">class </span><a class="code" href="classPlanner.html">Planner</a>{</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <a class="code" href="classPlanner.html">Planner</a>()=<span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
-<div class="line"><a name="l00146"></a><span class="lineno"><a class="line" href="classPlanner.html#aae39b978d83cd3e6a41ee85eb672384c">  146</a></span>&#160;    <span class="keyword">virtual</span> std::vector&lt;vertexDescriptor&gt; <a class="code" href="classPlanner.html#aae39b978d83cd3e6a41ee85eb672384c">plan</a>(TransitionSystem&amp; g, vertexDescriptor src, <a class="code" href="classExecutionInfo.html">ExecutionInfo</a> &amp; info, <span class="keywordtype">bool</span> *finished)=0;</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160; </div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
+<div class="line"><a name="l00131"></a><span class="lineno"><a class="line" href="classPlanner.html">  131</a></span>&#160;<span class="keyword">class </span><a class="code" href="classPlanner.html">Planner</a>{</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <a class="code" href="classPlanner.html">Planner</a>()=<span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
+<div class="line"><a name="l00147"></a><span class="lineno"><a class="line" href="classPlanner.html#a8a6c2e8cb4bd055d1e77edc22a45cf17">  147</a></span>&#160;    <span class="keyword">virtual</span> std::vector&lt;vertexDescriptor&gt; <a class="code" href="classPlanner.html#a8a6c2e8cb4bd055d1e77edc22a45cf17">plan</a>(TransitionSystem g, vertexDescriptor src, <a class="code" href="classExecutionInfo.html">ExecutionInfo</a> &amp; info, <span class="keywordtype">bool</span> *finished)=0;</div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160; </div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;};</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; </div>
-<div class="line"><a name="l00168"></a><span class="lineno"><a class="line" href="classHorizonStarPlanner.html">  168</a></span>&#160;<span class="keyword">class </span><a class="code" href="classHorizonStarPlanner.html">HorizonStarPlanner</a>:<span class="keyword">public</span> <a class="code" href="classPlanner.html">Planner</a>{</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160; </div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classHorizonStarPlanner.html#af09006cf441f61897fb5c6953c25efb1">path2add2</a>(std::vector&lt;std::vector&lt;vertexDescriptor&gt;&gt;::reverse_iterator &amp; path, <span class="keyword">const</span> std::vector &lt;vertexDescriptor&gt; &amp; add, std::vector&lt;std::vector&lt;vertexDescriptor&gt;&gt; &amp;paths, TransitionSystem &amp;g);</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160; </div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    std::vector &lt;vertexDescriptor&gt; <a class="code" href="classHorizonStarPlanner.html#a4e2246600849cc0f8262cf4d59a79ef7">best_path</a>(<span class="keyword">const</span> std::vector&lt;std::vector&lt;vertexDescriptor&gt;&gt;&amp; paths, vertexDescriptor goal,  vertexDescriptor cv,  <span class="keywordtype">bool</span> change, <span class="keyword">const</span> TransitionSystem&amp; g);</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160; </div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160; </div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;};</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160; </div>
+<div class="line"><a name="l00169"></a><span class="lineno"><a class="line" href="classHorizonStarPlanner.html">  169</a></span>&#160;<span class="keyword">class </span><a class="code" href="classHorizonStarPlanner.html">HorizonStarPlanner</a>:<span class="keyword">public</span> <a class="code" href="classPlanner.html">Planner</a>{</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160; </div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classHorizonStarPlanner.html#af09006cf441f61897fb5c6953c25efb1">path2add2</a>(std::vector&lt;std::vector&lt;vertexDescriptor&gt;&gt;::reverse_iterator &amp; path, <span class="keyword">const</span> std::vector &lt;vertexDescriptor&gt; &amp; add, std::vector&lt;std::vector&lt;vertexDescriptor&gt;&gt; &amp;paths, TransitionSystem &amp;g);</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160; </div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    std::vector &lt;vertexDescriptor&gt; <a class="code" href="classHorizonStarPlanner.html#a4e2246600849cc0f8262cf4d59a79ef7">best_path</a>(<span class="keyword">const</span> std::vector&lt;std::vector&lt;vertexDescriptor&gt;&gt;&amp; paths, vertexDescriptor goal,  vertexDescriptor cv,  <span class="keywordtype">bool</span> change, <span class="keyword">const</span> TransitionSystem&amp; g);</div>
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160; </div>
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160; </div>
 <div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classHorizonStarPlanner.html#a2717288dc5c07d08c570ef1432c8191b">addToPriorityQueue</a>(<span class="keyword">const</span> <a class="code" href="structFrontier.html">Frontier</a> &amp;f, std::vector&lt;Frontier&gt;&amp; queue, TransitionSystem &amp;g,<span class="keyword">const</span>  std::set&lt;vertexDescriptor&gt;&amp;closed, vertexDescriptor goal=TransitionSystem::null_vertex());</div>
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160; </div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160; </div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    <span class="comment">// struct CostMap{</span></div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    <span class="comment">//     std::map&lt;vertexDescriptor, float&gt; map;</span></div>
 <div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160; </div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    std::vector&lt;vertexDescriptor&gt; <a class="code" href="classHorizonStarPlanner.html#afdc4a15288b0da11057e8123a1741108">plan</a>(TransitionSystem&amp; g, vertexDescriptor src, <a class="code" href="classExecutionInfo.html">ExecutionInfo</a> &amp; info, <span class="keywordtype">bool</span> * finished=NULL)<span class="keyword">override</span>;</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160; </div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;};</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160; </div>
-<div class="line"><a name="l00216"></a><span class="lineno"><a class="line" href="classNoPlanner.html">  216</a></span>&#160;<span class="keyword">class </span><a class="code" href="classNoPlanner.html">NoPlanner</a>:<span class="keyword">public</span> <a class="code" href="classPlanner.html">Planner</a>{</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160; </div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    std::vector&lt;vertexDescriptor&gt; plan(TransitionSystem&amp; g, vertexDescriptor src, <a class="code" href="classExecutionInfo.html">ExecutionInfo</a> &amp; info, <span class="keywordtype">bool</span> * finished=NULL)<span class="keyword">override</span>{}</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    <span class="comment">//     void init(TransitionSystem &amp; g){</span></div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    <span class="comment">//         auto vs=boost::vertices(g);</span></div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    <span class="comment">//         for (auto vi=vs.first; vi!=vs.first; vi++){</span></div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    <span class="comment">//             if (g[*vi].visited()){</span></div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    <span class="comment">//                 map.emplace(std::make_pair(*vi,g[*vi].phi));</span></div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    <span class="comment">//             }</span></div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    <span class="comment">//         }</span></div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    <span class="comment">//     }</span></div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    <span class="comment">// }costMap;</span></div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    </div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160; </div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160; </div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;};</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160; </div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    std::vector&lt;vertexDescriptor&gt; <a class="code" href="classHorizonStarPlanner.html#a3d35918e6f0f60efe94fa6c1f1016121">plan</a>(TransitionSystem g, vertexDescriptor src, <a class="code" href="classExecutionInfo.html">ExecutionInfo</a> &amp; info, <span class="keywordtype">bool</span> * finished=NULL)<span class="keyword">override</span>;</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160; </div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;};</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160; </div>
+<div class="line"><a name="l00228"></a><span class="lineno"><a class="line" href="classNoPlanner.html">  228</a></span>&#160;<span class="keyword">class </span><a class="code" href="classNoPlanner.html">NoPlanner</a>:<span class="keyword">public</span> <a class="code" href="classPlanner.html">Planner</a>{</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160; </div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    std::vector&lt;vertexDescriptor&gt; plan(TransitionSystem g, vertexDescriptor src, <a class="code" href="classExecutionInfo.html">ExecutionInfo</a> &amp; info, <span class="keywordtype">bool</span> * finished=NULL)<span class="keyword">override</span>{</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;        <span class="keywordflow">return</span> std::vector&lt;vertexDescriptor&gt;();</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    }</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160; </div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160; </div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;};</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160; </div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aclassConfigurator_html"><div class="ttname"><a href="classConfigurator.html">Configurator</a></div><div class="ttdef"><b>Definition:</b> configurator.h:17</div></div>
-<div class="ttc" id="aclassExecutionInfo_html"><div class="ttname"><a href="classExecutionInfo.html">ExecutionInfo</a></div><div class="ttdoc">Information about what the configurator is doing (current Task, current vertex), what it wants to do ...</div><div class="ttdef"><b>Definition:</b> planner.h:48</div></div>
-<div class="ttc" id="aclassHorizonStarPlanner_html"><div class="ttname"><a href="classHorizonStarPlanner.html">HorizonStarPlanner</a></div><div class="ttdoc">Performs iterative deepening search over one unit of modular expansion (see below),...</div><div class="ttdef"><b>Definition:</b> planner.h:168</div></div>
+<div class="ttc" id="aclassExecutionInfo_html"><div class="ttname"><a href="classExecutionInfo.html">ExecutionInfo</a></div><div class="ttdoc">Information about what the configurator is doing (current Task, current vertex), what it wants to do ...</div><div class="ttdef"><b>Definition:</b> planner.h:49</div></div>
+<div class="ttc" id="aclassHorizonStarPlanner_html"><div class="ttname"><a href="classHorizonStarPlanner.html">HorizonStarPlanner</a></div><div class="ttdoc">Performs iterative deepening search over one unit of modular expansion (see below),...</div><div class="ttdef"><b>Definition:</b> planner.h:169</div></div>
 <div class="ttc" id="aclassHorizonStarPlanner_html_a2717288dc5c07d08c570ef1432c8191b"><div class="ttname"><a href="classHorizonStarPlanner.html#a2717288dc5c07d08c570ef1432c8191b">HorizonStarPlanner::addToPriorityQueue</a></div><div class="ttdeci">void addToPriorityQueue(const Frontier &amp;f, std::vector&lt; Frontier &gt; &amp;queue, TransitionSystem &amp;g, const std::set&lt; vertexDescriptor &gt; &amp;closed, vertexDescriptor goal=TransitionSystem::null_vertex())</div><div class="ttdoc">Adds frontier to priority queue.</div><div class="ttdef"><b>Definition:</b> planner.cpp:177</div></div>
+<div class="ttc" id="aclassHorizonStarPlanner_html_a3d35918e6f0f60efe94fa6c1f1016121"><div class="ttname"><a href="classHorizonStarPlanner.html#a3d35918e6f0f60efe94fa6c1f1016121">HorizonStarPlanner::plan</a></div><div class="ttdeci">std::vector&lt; vertexDescriptor &gt; plan(TransitionSystem g, vertexDescriptor src, ExecutionInfo &amp;info, bool *finished=NULL) override</div><div class="ttdoc">Implements custom algorithm to search transition system for a plan.</div><div class="ttdef"><b>Definition:</b> planner.cpp:199</div></div>
 <div class="ttc" id="aclassHorizonStarPlanner_html_a4e2246600849cc0f8262cf4d59a79ef7"><div class="ttname"><a href="classHorizonStarPlanner.html#a4e2246600849cc0f8262cf4d59a79ef7">HorizonStarPlanner::best_path</a></div><div class="ttdeci">std::vector&lt; vertexDescriptor &gt; best_path(const std::vector&lt; std::vector&lt; vertexDescriptor &gt;&gt; &amp;paths, vertexDescriptor goal, vertexDescriptor cv, bool change, const TransitionSystem &amp;g)</div><div class="ttdoc">Searches all paths for best path according to the lowest final cost phi.</div><div class="ttdef"><b>Definition:</b> planner.cpp:72</div></div>
 <div class="ttc" id="aclassHorizonStarPlanner_html_af09006cf441f61897fb5c6953c25efb1"><div class="ttname"><a href="classHorizonStarPlanner.html#af09006cf441f61897fb5c6953c25efb1">HorizonStarPlanner::path2add2</a></div><div class="ttdeci">void path2add2(std::vector&lt; std::vector&lt; vertexDescriptor &gt;&gt;::reverse_iterator &amp;path, const std::vector&lt; vertexDescriptor &gt; &amp;add, std::vector&lt; std::vector&lt; vertexDescriptor &gt;&gt; &amp;paths, TransitionSystem &amp;g)</div><div class="ttdoc">Finds the best path to add a frontier to (frontier found separately)</div><div class="ttdef"><b>Definition:</b> planner.cpp:20</div></div>
-<div class="ttc" id="aclassHorizonStarPlanner_html_afdc4a15288b0da11057e8123a1741108"><div class="ttname"><a href="classHorizonStarPlanner.html#afdc4a15288b0da11057e8123a1741108">HorizonStarPlanner::plan</a></div><div class="ttdeci">std::vector&lt; vertexDescriptor &gt; plan(TransitionSystem &amp;g, vertexDescriptor src, ExecutionInfo &amp;info, bool *finished=NULL) override</div><div class="ttdoc">Implements custom algorithm to search transition system for a plan.</div><div class="ttdef"><b>Definition:</b> planner.cpp:194</div></div>
-<div class="ttc" id="aclassNoPlanner_html"><div class="ttname"><a href="classNoPlanner.html">NoPlanner</a></div><div class="ttdoc">Does not extract a plan.</div><div class="ttdef"><b>Definition:</b> planner.h:216</div></div>
-<div class="ttc" id="aclassPlanner_html"><div class="ttname"><a href="classPlanner.html">Planner</a></div><div class="ttdoc">Searches the transition system and extracts a plan.</div><div class="ttdef"><b>Definition:</b> planner.h:130</div></div>
-<div class="ttc" id="aclassPlanner_html_aae39b978d83cd3e6a41ee85eb672384c"><div class="ttname"><a href="classPlanner.html#aae39b978d83cd3e6a41ee85eb672384c">Planner::plan</a></div><div class="ttdeci">virtual std::vector&lt; vertexDescriptor &gt; plan(TransitionSystem &amp;g, vertexDescriptor src, ExecutionInfo &amp;info, bool *finished)=0</div><div class="ttdoc">Implements custom algorithm to search transition system for a plan.</div></div>
+<div class="ttc" id="aclassNoPlanner_html"><div class="ttname"><a href="classNoPlanner.html">NoPlanner</a></div><div class="ttdoc">Does not extract a plan.</div><div class="ttdef"><b>Definition:</b> planner.h:228</div></div>
+<div class="ttc" id="aclassPlanner_html"><div class="ttname"><a href="classPlanner.html">Planner</a></div><div class="ttdoc">Searches the transition system and extracts a plan.</div><div class="ttdef"><b>Definition:</b> planner.h:131</div></div>
+<div class="ttc" id="aclassPlanner_html_a8a6c2e8cb4bd055d1e77edc22a45cf17"><div class="ttname"><a href="classPlanner.html#a8a6c2e8cb4bd055d1e77edc22a45cf17">Planner::plan</a></div><div class="ttdeci">virtual std::vector&lt; vertexDescriptor &gt; plan(TransitionSystem g, vertexDescriptor src, ExecutionInfo &amp;info, bool *finished)=0</div><div class="ttdoc">Implements custom algorithm to search transition system for a plan.</div></div>
 <div class="ttc" id="aclassTask_html"><div class="ttname"><a href="classTask.html">Task</a></div><div class="ttdoc">A closed hybrid control loop. It has an initial disturbance representing the continuous state and a d...</div><div class="ttdef"><b>Definition:</b> task.h:47</div></div>
 <div class="ttc" id="aplanner_8h_html_a14dbfe33b0e5bb016c9418a84e308bf9"><div class="ttname"><a href="planner_8h.html#a14dbfe33b0e5bb016c9418a84e308bf9">frontierVertices</a></div><div class="ttdeci">std::vector&lt; Frontier &gt; frontierVertices(vertexDescriptor v, TransitionSystem &amp;g, ExecutionInfo &amp;info)</div><div class="ttdoc">Performs iterative deepening search to find the frontier.</div><div class="ttdef"><b>Definition:</b> planner.cpp:100</div></div>
 <div class="ttc" id="aplanner_8h_html_a28788457bae4570731c2c24c7c3d4ba6"><div class="ttname"><a href="planner_8h.html#a28788457bae4570731c2c24c7c3d4ba6">estimateCost</a></div><div class="ttdeci">EndedResult estimateCost(const State &amp;state, b2Transform start, Direction d, Task &amp;_goal)</div><div class="ttdoc">Provides a breakdown of the cost function into its components: past cost (gamma): the position relati...</div><div class="ttdef"><b>Definition:</b> planner.cpp:13</div></div>
 <div class="ttc" id="aplanner_8h_html_ab029ebc328b13a4e272125d1dcbd53aa"><div class="ttname"><a href="planner_8h.html#ab029ebc328b13a4e272125d1dcbd53aa">evaluationFunction</a></div><div class="ttdeci">float evaluationFunction(EndedResult er, const vertexDescriptor &amp;v, std::vector&lt; vertexDescriptor &gt; &amp;p)</div><div class="ttdoc">calculates cumulative cost phi, add discount factor if in plan</div><div class="ttdef"><b>Definition:</b> planner.cpp:3</div></div>
-<div class="ttc" id="astructComparePhi_html"><div class="ttname"><a href="structComparePhi.html">ComparePhi</a></div><div class="ttdoc">Predicate which compares evaluation functions in State-Frontier pairs.</div><div class="ttdef"><b>Definition:</b> planner.h:34</div></div>
+<div class="ttc" id="astructComparePhi_html"><div class="ttname"><a href="structComparePhi.html">ComparePhi</a></div><div class="ttdoc">Predicate which compares evaluation functions in State-Frontier pairs.</div><div class="ttdef"><b>Definition:</b> planner.h:35</div></div>
 <div class="ttc" id="astructEndedResult_html"><div class="ttname"><a href="structEndedResult.html">EndedResult</a></div><div class="ttdoc">Provides information on whether a Task has ended and with what heuristic -estimated- cost (chi) and p...</div><div class="ttdef"><b>Definition:</b> measurement.h:126</div></div>
-<div class="ttc" id="astructFrontier_html"><div class="ttname"><a href="structFrontier.html">Frontier</a></div><div class="ttdoc">Contains the frontier (first) and the connecting vertices.</div><div class="ttdef"><b>Definition:</b> planner.h:16</div></div>
+<div class="ttc" id="astructFrontier_html"><div class="ttname"><a href="structFrontier.html">Frontier</a></div><div class="ttdoc">Contains the frontier (first) and the connecting vertices.</div><div class="ttdef"><b>Definition:</b> planner.h:17</div></div>
 <div class="ttc" id="astructState_html"><div class="ttname"><a href="structState.html">State</a></div><div class="ttdoc">Hybrid states in the transition system.</div><div class="ttdef"><b>Definition:</b> graphTools.h:69</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

@@ -126,9 +126,9 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:a8b2ea9effa5ec64ba41c045e6265f39d"><td class="memItemLeft" align="right" valign="top"><a id="a8b2ea9effa5ec64ba41c045e6265f39d"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>canReassignOutcome</b> (vertexDescriptor v) override</td></tr>
 <tr class="separator:a8b2ea9effa5ec64ba41c045e6265f39d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ea53b8adec244fd4fda39476dd59116"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDiscreteConfigurator.html#a2ea53b8adec244fd4fda39476dd59116">propagateD</a> (vertexDescriptor v1, vertexDescriptor v0, std::set&lt; vertexDescriptor &gt; *closed=NULL, StateMatcher::MATCH_TYPE match=StateMatcher::_FALSE) override</td></tr>
-<tr class="memdesc:a2ea53b8adec244fd4fda39476dd59116"><td class="mdescLeft">&#160;</td><td class="mdescRight">Propagate a disturbance backwards to all states representing the same task (max 1)  <a href="classDiscreteConfigurator.html#a2ea53b8adec244fd4fda39476dd59116">More...</a><br /></td></tr>
-<tr class="separator:a2ea53b8adec244fd4fda39476dd59116"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef12161d35f0ca7257e48ab76366ccf3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDiscreteConfigurator.html#aef12161d35f0ca7257e48ab76366ccf3">propagateD</a> (vertexDescriptor v1, vertexDescriptor v0) override</td></tr>
+<tr class="memdesc:aef12161d35f0ca7257e48ab76366ccf3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Propagate a disturbance backwards to all states representing the same task (max 1)  <a href="classDiscreteConfigurator.html#aef12161d35f0ca7257e48ab76366ccf3">More...</a><br /></td></tr>
+<tr class="separator:aef12161d35f0ca7257e48ab76366ccf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a34d222397f320a1da853bc1eab567422"><td class="memItemLeft" align="right" valign="top"><a id="a34d222397f320a1da853bc1eab567422"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>customSimulationStep</b> (vertexDescriptor v=TransitionSystem::null_vertex()) override</td></tr>
 <tr class="separator:a34d222397f320a1da853bc1eab567422"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -289,7 +289,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>adjust_rw_task</b> (c
 <tr class="separator:a039ea77acc9b9500467a426d80945c9f inherit pro_methods_classFocusedConfigurator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5babdc910c9349dcf41ff5d34b282479 inherit pro_methods_classFocusedConfigurator"><td class="memItemLeft" align="right" valign="top"><a id="a5babdc910c9349dcf41ff5d34b282479"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFocusedConfigurator.html#a5babdc910c9349dcf41ff5d34b282479">resetPhi</a> ()</td></tr>
-<tr class="memdesc:a5babdc910c9349dcf41ff5d34b282479 inherit pro_methods_classFocusedConfigurator"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets all vertices evaluation function phi to a default unitialised value of 10. <br /></td></tr>
+<tr class="memdesc:a5babdc910c9349dcf41ff5d34b282479 inherit pro_methods_classFocusedConfigurator"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets all vertices evaluation function phi to a default unitialised value of 10 Also resets all vertices filled flag as zero (used at each exploration round) <br /></td></tr>
 <tr class="separator:a5babdc910c9349dcf41ff5d34b282479 inherit pro_methods_classFocusedConfigurator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a92b1fbaa3d3307a3f4c92a4bbc98c97d inherit pro_methods_classFocusedConfigurator"><td class="memItemLeft" align="right" valign="top">std::pair&lt; edgeDescriptor, bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFocusedConfigurator.html#a92b1fbaa3d3307a3f4c92a4bbc98c97d">add_vertex_now</a> (const vertexDescriptor &amp;src, vertexDescriptor &amp;v1, <a class="el" href="structDisturbance.html">Disturbance</a> obs, <a class="el" href="structEdge.html">Edge</a> edge=<a class="el" href="structEdge.html">Edge</a>(), bool topDown=0)</td></tr>
 <tr class="memdesc:a92b1fbaa3d3307a3f4c92a4bbc98c97d inherit pro_methods_classFocusedConfigurator"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds state after discovering it in exploration.  <a href="classFocusedConfigurator.html#a92b1fbaa3d3307a3f4c92a4bbc98c97d">More...</a><br /></td></tr>
@@ -303,12 +303,17 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="separator:af1922c4711c12cd32a4dc2e398adb18b inherit pro_methods_classFocusedConfigurator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a72b114969d6146e48265f42c66bfa73c inherit pro_methods_classFocusedConfigurator"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFocusedConfigurator.html#a72b114969d6146e48265f42c66bfa73c">removeExploredTransitions</a> (vertexDescriptor v)</td></tr>
 <tr class="separator:a72b114969d6146e48265f42c66bfa73c inherit pro_methods_classFocusedConfigurator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a461215f8ea53ed4af0d1a00cd5848f0e inherit pro_methods_classFocusedConfigurator"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFocusedConfigurator.html#a461215f8ea53ed4af0d1a00cd5848f0e">removePointlessTransitions</a> (vertexDescriptor v)</td></tr>
+<tr class="separator:a461215f8ea53ed4af0d1a00cd5848f0e inherit pro_methods_classFocusedConfigurator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1ee5b7449b41b49ba66da68e32593d82 inherit pro_methods_classFocusedConfigurator"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFocusedConfigurator.html#a1ee5b7449b41b49ba66da68e32593d82">applyTransitionMatrix</a> (vertexDescriptor v0, Direction d, bool ended, vertexDescriptor src, std::vector&lt; vertexDescriptor &gt; &amp;plan_prov)</td></tr>
 <tr class="memdesc:a1ee5b7449b41b49ba66da68e32593d82 inherit pro_methods_classFocusedConfigurator"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets permitted transitions out of a state, formally combines jump guard J and guard Psi.  <a href="classFocusedConfigurator.html#a1ee5b7449b41b49ba66da68e32593d82">More...</a><br /></td></tr>
 <tr class="separator:a1ee5b7449b41b49ba66da68e32593d82 inherit pro_methods_classFocusedConfigurator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a654212b589faf515d0ca263e462fd977 inherit pro_methods_classFocusedConfigurator"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFocusedConfigurator.html#a654212b589faf515d0ca263e462fd977">addToPriorityQueue</a> (vertexDescriptor v, std::vector&lt; vertexDescriptor &gt; &amp;queue, const std::set&lt; vertexDescriptor &gt; &amp;closed)</td></tr>
 <tr class="memdesc:a654212b589faf515d0ca263e462fd977 inherit pro_methods_classFocusedConfigurator"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds vertexDescriptor to priority queue according to a custom heuristic.  <a href="classFocusedConfigurator.html#a654212b589faf515d0ca263e462fd977">More...</a><br /></td></tr>
 <tr class="separator:a654212b589faf515d0ca263e462fd977 inherit pro_methods_classFocusedConfigurator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac7fe1754a4ac35b0bd1172880dfcd88 inherit pro_methods_classFocusedConfigurator"><td class="memItemLeft" align="right" valign="top"><a id="aac7fe1754a4ac35b0bd1172880dfcd88"></a>
+vertexDescriptor&#160;</td><td class="memItemRight" valign="bottom"><b>getNextSrc</b> (const std::vector&lt; vertexDescriptor &gt; &amp;q)</td></tr>
+<tr class="separator:aac7fe1754a4ac35b0bd1172880dfcd88 inherit pro_methods_classFocusedConfigurator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a24ea017931c5c601aabd54d21695b7ab inherit pro_methods_classFocusedConfigurator"><td class="memItemLeft" align="right" valign="top"><a id="a24ea017931c5c601aabd54d21695b7ab"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>ts_cleanup</b> ()</td></tr>
 <tr class="separator:a24ea017931c5c601aabd54d21695b7ab inherit pro_methods_classFocusedConfigurator"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -344,6 +349,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:a8f915121ad0da21fd7b84508a6a383ae inherit pro_methods_classFocusedConfigurator"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; vertexDescriptor &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFocusedConfigurator.html#a8f915121ad0da21fd7b84508a6a383ae">task_vertices</a> (vertexDescriptor v, std::pair&lt; bool, edgeDescriptor &gt; *ep=NULL)</td></tr>
 <tr class="memdesc:a8f915121ad0da21fd7b84508a6a383ae inherit pro_methods_classFocusedConfigurator"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rerturns all the vertices making up a task.  <a href="classFocusedConfigurator.html#a8f915121ad0da21fd7b84508a6a383ae">More...</a><br /></td></tr>
 <tr class="separator:a8f915121ad0da21fd7b84508a6a383ae inherit pro_methods_classFocusedConfigurator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a084ac09fbace0897881962e5ae0178f5 inherit pro_methods_classFocusedConfigurator"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFocusedConfigurator.html#a084ac09fbace0897881962e5ae0178f5">isPreviousState</a> (const <a class="el" href="structState.html">State</a> &amp;s, const <a class="el" href="structState.html">State</a> &amp;candidate)</td></tr>
+<tr class="memdesc:a084ac09fbace0897881962e5ae0178f5 inherit pro_methods_classFocusedConfigurator"><td class="mdescLeft">&#160;</td><td class="mdescRight">more flexible way to estimate whether the previous state represents the previous task based on matching shape of disturbances and logic applied to distance from Di/Dn  <a href="classFocusedConfigurator.html#a084ac09fbace0897881962e5ae0178f5">More...</a><br /></td></tr>
+<tr class="separator:a084ac09fbace0897881962e5ae0178f5 inherit pro_methods_classFocusedConfigurator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a444342d5588a73f7042f2e42f857675b inherit pro_methods_classFocusedConfigurator"><td class="memItemLeft" align="right" valign="top">vertexDescriptor&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFocusedConfigurator.html#a444342d5588a73f7042f2e42f857675b">getRecyclingStart</a> (vertexDescriptor v, vertexDescriptor v1, vertexDescriptor taskStart)</td></tr>
 <tr class="memdesc:a444342d5588a73f7042f2e42f857675b inherit pro_methods_classFocusedConfigurator"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the vertex from which to start recycling plan.  <a href="classFocusedConfigurator.html#a444342d5588a73f7042f2e42f857675b">More...</a><br /></td></tr>
 <tr class="separator:a444342d5588a73f7042f2e42f857675b inherit pro_methods_classFocusedConfigurator"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -353,9 +361,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:a00749950d523d53aa20029506415710f inherit pro_methods_classFocusedConfigurator"><td class="memItemLeft" align="right" valign="top">std::pair&lt; edgeDescriptor, bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFocusedConfigurator.html#a00749950d523d53aa20029506415710f">addEdgeRetrospectively</a> (vertexDescriptor v, vertexDescriptor &amp;v1, const <a class="el" href="structState.html">State</a> &amp;s_tmp, std::pair&lt; edgeDescriptor, bool &gt; first_edge, Direction d, float linearSpeed)</td></tr>
 <tr class="memdesc:a00749950d523d53aa20029506415710f inherit pro_methods_classFocusedConfigurator"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds edge retrospectively (used in split task)  <a href="classFocusedConfigurator.html#a00749950d523d53aa20029506415710f">More...</a><br /></td></tr>
 <tr class="separator:a00749950d523d53aa20029506415710f inherit pro_methods_classFocusedConfigurator"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac2fb06e00debcc3dbc748fe0ca01c371 inherit pro_methods_classFocusedConfigurator"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFocusedConfigurator.html#ac2fb06e00debcc3dbc748fe0ca01c371">correctQueue</a> (std::vector&lt; vertexDescriptor &gt; &amp;queue, vertexDescriptor v, vertexDescriptor startRecycle, int planProvSize)</td></tr>
-<tr class="memdesc:ac2fb06e00debcc3dbc748fe0ca01c371 inherit pro_methods_classFocusedConfigurator"><td class="mdescLeft">&#160;</td><td class="mdescRight">Edits.  <a href="classFocusedConfigurator.html#ac2fb06e00debcc3dbc748fe0ca01c371">More...</a><br /></td></tr>
-<tr class="separator:ac2fb06e00debcc3dbc748fe0ca01c371 inherit pro_methods_classFocusedConfigurator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04274c0147981a450702c964a799f32f inherit pro_methods_classFocusedConfigurator"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFocusedConfigurator.html#a04274c0147981a450702c964a799f32f">correctQueue</a> (std::vector&lt; vertexDescriptor &gt; &amp;queue, vertexDescriptor v, vertexDescriptor startRecycle, int planProvSize)</td></tr>
+<tr class="memdesc:a04274c0147981a450702c964a799f32f inherit pro_methods_classFocusedConfigurator"><td class="mdescLeft">&#160;</td><td class="mdescRight">Edits.  <a href="classFocusedConfigurator.html#a04274c0147981a450702c964a799f32f">More...</a><br /></td></tr>
+<tr class="separator:a04274c0147981a450702c964a799f32f inherit pro_methods_classFocusedConfigurator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0827463eb0fee53339647f8d71f34e83 inherit pro_methods_classFocusedConfigurator"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFocusedConfigurator.html#a0827463eb0fee53339647f8d71f34e83">adjustProbability</a> (const edgeDescriptor &amp;e)</td></tr>
 <tr class="memdesc:a0827463eb0fee53339647f8d71f34e83 inherit pro_methods_classFocusedConfigurator"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adjusts the probability that a continuous state (edge target) will occur after taking a discrete state transition from the edge source.  <a href="classFocusedConfigurator.html#a0827463eb0fee53339647f8d71f34e83">More...</a><br /></td></tr>
 <tr class="separator:a0827463eb0fee53339647f8d71f34e83 inherit pro_methods_classFocusedConfigurator"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -711,8 +719,8 @@ edgeDescriptor&#160;</td><td class="memItemRight" valign="bottom"><b>currentEdge
 
 </div>
 </div>
-<a id="a2ea53b8adec244fd4fda39476dd59116"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2ea53b8adec244fd4fda39476dd59116">&#9670;&nbsp;</a></span>propagateD()</h2>
+<a id="aef12161d35f0ca7257e48ab76366ccf3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef12161d35f0ca7257e48ab76366ccf3">&#9670;&nbsp;</a></span>propagateD()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -730,19 +738,7 @@ edgeDescriptor&#160;</td><td class="memItemRight" valign="bottom"><b>currentEdge
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">vertexDescriptor&#160;</td>
-          <td class="paramname"><em>v0</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::set&lt; vertexDescriptor &gt; *&#160;</td>
-          <td class="paramname"><em>closed</em> = <code>NULL</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">StateMatcher::MATCH_TYPE&#160;</td>
-          <td class="paramname"><em>match</em> = <code>StateMatcher::_FALSE</code>&#160;</td>
+          <td class="paramname"><em>v0</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -769,7 +765,7 @@ edgeDescriptor&#160;</td><td class="memItemRight" valign="bottom"><b>currentEdge
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>whether a criteria to continue propagating is met </dd></dl>
 
-<p>Reimplemented from <a class="el" href="classFocusedConfigurator.html#a856b248666587a0ecc9e48f914441936">FocusedConfigurator</a>.</p>
+<p>Reimplemented from <a class="el" href="classFocusedConfigurator.html#a8515a68ec1b1111c5a3d57dd3466e5ad">FocusedConfigurator</a>.</p>
 
 </div>
 </div>

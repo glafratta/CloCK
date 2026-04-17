@@ -22,5 +22,5 @@ var searchData=
   ['controller_49',['Controller',['../classController.html',1,'']]],
   ['coordinatecontainer_50',['CoordinateContainer',['../sensor_8h.html#a17aa500d7fd9def31a6a11868d2375bd',1,'sensor.h']]],
   ['correctangle_51',['correctAngle',['../classClosedLoop__Tracker.html#ad53e29d5c51f1c2e633cf446f4299758',1,'ClosedLoop_Tracker']]],
-  ['correctqueue_52',['correctQueue',['../classFocusedConfigurator.html#ac2fb06e00debcc3dbc748fe0ca01c371',1,'FocusedConfigurator']]]
+  ['correctqueue_52',['correctQueue',['../classFocusedConfigurator.html#a04274c0147981a450702c964a799f32f',1,'FocusedConfigurator']]]
 ];
